@@ -7,7 +7,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 
-
 class BarbeiroType extends AbstractType
 {
     /**
@@ -19,7 +18,7 @@ class BarbeiroType extends AbstractType
                 ->add('telefone')
                 ->add('sexo')
                 ->add('dataNascimento', BirthdayType::class, array(
-                    'format' => 'ddMMyyyy',
+                    'format' => 'dd-MM-yyyy',
                     'label' => 'Data de Nascimento'
                 ))
                 ->add('servico');

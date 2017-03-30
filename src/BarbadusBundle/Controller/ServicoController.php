@@ -24,14 +24,16 @@ class ServicoController extends Controller
     public function indexAction(Request $request)
     {
         $ordenar = $request->get('ordenar');
+
+        $ordenar = ($ordenar != "")? $ordenar : "nome";
         
-        $ordenar = ($ordenar != "") ? $ordenar : "nome";
+        
         
         $em = $this->getDoctrine()->getManager();
 
-        //$servicos = $em->getRepository('BarbadusBundle:Servico')->findAll();
         $servicos = $em->getRepository('BarbadusBundle:Servico')
                 ->findBy(array(), array($ordenar => "ASC"));
+
        
         
         return $this->render('BarbadusBundle:Servico:index.html.twig', array(
@@ -92,6 +94,7 @@ class ServicoController extends Controller
      */
     public function editAction(Request $request, Servico $servico)
     {
+               
         $deleteForm = $this->createDeleteForm($servico);
         $editForm = $this->createForm('BarbadusBundle\Form\ServicoType', $servico);
         $editForm->handleRequest($request);

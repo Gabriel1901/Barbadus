@@ -46,7 +46,7 @@ class BarbeiroController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($barbeiro);
-            $em->flush($barbeiro);
+            $em->flush();
 
             return $this->redirectToRoute('barbeiro_show', array('id' => $barbeiro->getId()));
         }

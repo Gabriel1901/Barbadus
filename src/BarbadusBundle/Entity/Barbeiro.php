@@ -1,6 +1,7 @@
 <?php
 
 namespace BarbadusBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use BarbadusBundle\Entity\Servico;
 
@@ -23,8 +24,9 @@ class Barbeiro
     private $nome;
     
     /**
+     * 
      * @ORM\ManyToOne(targetEntity="Servico")
-     * @ORM\JoinColumn(name="servicos_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="servico_id", referencedColumnName="id")
      */
     private $servico;
     
@@ -42,7 +44,6 @@ class Barbeiro
      * @ORM\Column(type="date")
      */
     private $dataNascimento;
-    
 
     /**
      * Get id

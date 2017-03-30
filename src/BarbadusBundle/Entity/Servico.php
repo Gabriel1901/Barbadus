@@ -36,12 +36,14 @@ class Servico
      * @ORM\Column(type="integer")
      */
     private $duracao;
+
     
-    public function __toString()
+    public function __toString() 
     {
-        return $this->id . "-" .$this->nome;
+        return $this->nome;
     }
-    /**
+
+        /**
      * Get id
      *
      * @return integer
