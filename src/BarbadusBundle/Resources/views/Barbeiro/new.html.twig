@@ -3,9 +3,16 @@
 {% block body %}
     <h1>Cadastro de Barbeiro</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    {{ form_start(form, {'attr':{'novalidate':'novalidate'}}) }}
+    
+    
+        {{ form_row(form.nome) }}
+        {{ form_row(form.servico, {'label': 'Serviços'}) }}
+        {{ form_row(form.sexo) }}
+        {{ form_row(form.dataNascimento) }}
+        {{ form_row(form.telefone) }}
+        
+        <input class="btn bnt-success" type="submit" value="Salvar" />
     {{ form_end(form) }}
 
     <ul>

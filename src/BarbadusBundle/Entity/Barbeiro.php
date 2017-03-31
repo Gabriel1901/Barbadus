@@ -4,6 +4,8 @@ namespace BarbadusBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use BarbadusBundle\Entity\Servico;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity
@@ -20,6 +22,7 @@ class Barbeiro
     
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="O nome é obrigatório")
      */
     private $nome;
     
@@ -27,21 +30,27 @@ class Barbeiro
      * 
      * @ORM\ManyToOne(targetEntity="Servico")
      * @ORM\JoinColumn(name="servico_id", referencedColumnName="id")
+     * @Assert\NotBlank(message="O Serviço é obrigatório")
      */
     private $servico;
     
     /**
      * @ORM\Column(type="string", length=15, nullable=TRUE)
+     * @Assert\Regex(pattern= "/\([0-9].\)[9]{0,1}[0-9]{4}\-[0-9]{4}/",
+     *               message="O Telefone é invalido, Informe no formato (41)9999-9999")
      */
     private $telefone;
     
     /**
      * @ORM\Column(type="string", length=1)
+     * @Assert\NotBlank(message="O sexo é obrigatório")
      */
     private $sexo;
     
     /**
      * @ORM\Column(type="date")
+     * @Assert\GreaterThanOrEqual(value = "1950-1-1", 
+     * message= "A Data Informada está Inválida, informe algo maior que {{ compared_value }}")
      */
     private $dataNascimento;
 

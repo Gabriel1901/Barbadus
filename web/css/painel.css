@@ -43,6 +43,7 @@ li,ul{
 
 .login-header .navbar-right {
     margin-right: 0px;
+    
 }
 
 .login-header .nav-tabs > li.active > a,
@@ -186,6 +187,7 @@ li,ul{
 
 #navigation {
     background: #0e1a35;
+    height:650px;
 }
 
 #navigation {
@@ -351,6 +353,7 @@ header {
     font-weight: 500;
     padding: 28px 20px;
     text-decoration: none;
+    
 }
 
 .navi i {
@@ -648,7 +651,7 @@ header {
 .gutter{
     padding: 0;
 }
-}
+
 
 @media only screen and (max-device-width: 992px) {
     header .header-top li {

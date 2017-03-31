@@ -14,6 +14,10 @@
                 <td>{{ barbeiro.nome }}</td>
             </tr>
             <tr>
+                <th>Seviço</th>
+                <td>{{ barbeiro.servico }}</td>
+            </tr>
+            <tr>
                 <th>Telefone</th>
                 <td>{{ barbeiro.telefone }}</td>
             </tr>
@@ -23,7 +27,9 @@
             </tr>
             <tr>
                 <th>Datanascimento</th>
-                <td>{% if barbeiro.dataNascimento %}{{ barbeiro.dataNascimento|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if barbeiro.dataNascimento %}
+                    {{ barbeiro.dataNascimento|date('d-m-Y') }}
+                    {% endif %}</td>
             </tr>
         </tbody>
     </table>
