@@ -71,3 +71,12 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+    
+  
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: BarbadusBundle\Entity\Usuario
+    from_email:
+        address: "abc@abc.com"
+        sender_name: "Gabriel"

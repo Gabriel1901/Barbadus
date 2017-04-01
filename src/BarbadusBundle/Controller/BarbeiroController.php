@@ -5,7 +5,9 @@ namespace BarbadusBundle\Controller;
 use BarbadusBundle\Entity\Barbeiro;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Barbeiro controller.
@@ -18,6 +20,7 @@ class BarbeiroController extends Controller
      * Lists all barbeiro entities.
      *
      * @Route("/", name="barbeiro_index")
+     * @Security("has_role('ROLE_ADMIN')")
      * @Method("GET")
      */
     public function indexAction()
