@@ -11,7 +11,22 @@ class DefaultController extends Controller
      * @Route("/")
      */
     public function indexAction()
+    {        
+        $em = $this->getDoctrine()->getManager();
+        
+        $servicos = $em->getRepository('BarbadusBundle:Servico')
+                ->findBy(array(), array( 'nome' => 'ASC'));
+        
+        return $this->render('BarbadusBundle:Default:index.html.twig', array(
+            'servicos' => $servicos
+            
+        ));
+    }
+    
+    public function profissionaisAction()
     {
-        return $this->render('BarbadusBundle:Default:index.html.twig');
+    
+        
+        
     }
 }

@@ -1,0 +1,48 @@
+{% extends 'painel.html.twig' %}
+
+{% block body %}
+    <h1>Agendamento</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ agendamento.id }}</td>
+            </tr>
+            <tr>
+                <th>Horario</th>
+                <td>{% if agendamento.horario %}{{ agendamento.horario|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ agendamento.nome }}</td>
+            </tr>
+            <tr>
+                <th>Telefone</th>
+                <td>{{ agendamento.telefone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ agendamento.email }}</td>
+            </tr>
+            <tr>
+                <th>Datacadastro</th>
+                <td>{% if agendamento.dataCadastro %}{{ agendamento.dataCadastro|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dataalteracao</th>
+                <td>{% if agendamento.dataAlteracao %}{{ agendamento.dataAlteracao|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ agendamento.Status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('agendamento_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'painel.html.twig' %}
+
+{% block body %}
+    <h1>Agendamentos list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Horario</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Datacadastro</th>
+                <th>Dataalteracao</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agendamento in agendamentos %}
+            <tr>
+                <td><a href="{{ path('agendamento_show', { 'id': agendamento.id }) }}">{{ agendamento.id }}</a></td>
+                <td>{% if agendamento.horario %}{{ agendamento.horario|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ agendamento.nome }}</td>
+                <td>{{ agendamento.telefone }}</td>
+                <td>{{ agendamento.email }}</td>
+                <td>{% if agendamento.dataCadastro %}{{ agendamento.dataCadastro|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if agendamento.dataAlteracao %}{{ agendamento.dataAlteracao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ agendamento.Status }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('agendamento_show', { 'id': agendamento.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
