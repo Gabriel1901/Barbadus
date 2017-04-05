@@ -1,5 +1,6 @@
 <?php
 
+
 namespace BarbadusBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -11,7 +12,6 @@ use FOS\UserBundle\Model\User as BaseUser;
  */
 class Usuario extends BaseUser
 {
-    
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -22,7 +22,7 @@ class Usuario extends BaseUser
     /**
      * @ORM\Column(type="string", length=100, nullable=TRUE)
      */
-    private $nome;  
+    private $nome;
     
     public function getNome() 
     {
@@ -36,4 +36,5 @@ class Usuario extends BaseUser
     }
 
 
+        
 }

@@ -43,7 +43,6 @@ li,ul{
 
 .login-header .navbar-right {
     margin-right: 0px;
-    
 }
 
 .login-header .nav-tabs > li.active > a,
@@ -80,6 +79,7 @@ li,ul{
 
 .login-header .nav-tabs > li.active {
     border-bottom: 6px solid #5584ff;
+    
 }
 
 .login-inner h1 {
@@ -187,11 +187,12 @@ li,ul{
 
 #navigation {
     background: #0e1a35;
-    height:650px;
+    height: 650px;
 }
 
 #navigation {
     padding: 0;
+    
 }
 
 .display-table {
@@ -353,7 +354,6 @@ header {
     font-weight: 500;
     padding: 28px 20px;
     text-decoration: none;
-    
 }
 
 .navi i {
@@ -651,7 +651,7 @@ header {
 .gutter{
     padding: 0;
 }
-
+}
 
 @media only screen and (max-device-width: 992px) {
     header .header-top li {

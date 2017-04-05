@@ -3,17 +3,21 @@
 {% block body %}
     <h1>Cadastro de Barbeiro</h1>
 
-    {{ form_start(form, {'attr':{'novalidate':'novalidate'}}) }}
-    
-    
-        {{ form_row(form.nome) }}
+    {{ form_start(form, {'attr': {
+                            'novalidate': 'novalidate',
+                             'class': 'teste-form'
+                            } }) }}
+                            
+                            <div class="error">               
+       
         {{ form_row(form.servico, {'label': 'Serviços'}) }}
+        {{ form_row(form.nome) }}
         {{ form_row(form.sexo) }}
         {{ form_row(form.dataNascimento) }}
         {{ form_row(form.telefone) }}
         
-        <input class="btn bnt-success" type="submit" value="Salvar" />
-    {{ form_end(form) }}
+        <input class="btn btn-success" type="submit" value="Salvar" />
+{{ form_end(form) }}
 
     <ul>
         <li>

@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="barbeiro")
  */
-class Barbeiro 
+class Barbeiro implements \JsonSerializable
 {
     /**
      * @ORM\Column(type="integer")
@@ -30,14 +30,14 @@ class Barbeiro
      * 
      * @ORM\ManyToOne(targetEntity="Servico")
      * @ORM\JoinColumn(name="servico_id", referencedColumnName="id")
-     * @Assert\NotBlank(message="O Serviço é obrigatório")
+     * @Assert\NotBlank(message="O serviço é obrigatório")
      */
     private $servico;
     
     /**
      * @ORM\Column(type="string", length=15, nullable=TRUE)
-     * @Assert\Regex(pattern= "/\([0-9].\)[9]{0,1}[0-9]{4}\-[0-9]{4}/",
-     *               message="O Telefone é invalido, Informe no formato (41)9999-9999")
+     * @Assert\Regex(pattern="/\([0-9].\)[9]{0,1}[0-9]{4}-[0-9]{4}/",
+     *              message="O telefone é inválido. Informe no formato (99)99999-9999")
      */
     private $telefone;
     
@@ -49,12 +49,25 @@ class Barbeiro
     
     /**
      * @ORM\Column(type="date")
-     * @Assert\GreaterThanOrEqual(value = "1950-1-1", 
-     * message= "A Data Informada está Inválida, informe algo maior que {{ compared_value }}")
+     * @Assert\GreaterThanOrEqual(value="1950-1-1", 
+     *      message="A data informada esta invalida, informa algo maior que {{ compared_value }}")
      */
     private $dataNascimento;
 
-    /**
+    public function __toString() 
+    {
+        return $this->nome;
+    }
+    
+    public function jsonSerialize() 
+    {
+        return array(
+            "nome" => $this->nome,
+            "id" => $this->id
+        );
+    }
+
+            /**
      * Get id
      *
      * @return integer

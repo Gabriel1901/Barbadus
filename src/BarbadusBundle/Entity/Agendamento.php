@@ -23,16 +23,16 @@ class Agendamento
      * @ORM\JoinColumn(name="servico_id", referencedColumnName="id")
      */
     private $servico;
-    
+
     /**
      * 
      * @ORM\ManyToOne(targetEntity="Barbeiro")
      * @ORM\JoinColumn(name="barbeiro_id", referencedColumnName="id")
-     */
+     */    
     private $barbeiro;
     
-    /** 
-     * @ORM\Column(type="datetime") 
+    /**
+     * @ORM\Column(type="datetime")
      */
     private $horario;
     
@@ -51,20 +51,21 @@ class Agendamento
      */
     private $email;
     
-    /** 
-     * @ORM\Column(type="datetime") 
+    /**
+     * @ORM\Column(type="datetime")
      */
     private $dataCadastro;
     
-    /** 
-     * @ORM\Column(type="datetime") 
+    /**
+     * @ORM\Column(type="datetime")
      */
     private $dataAlteracao;
     
     /**
      * @ORM\Column(type="string", length=30)
      */
-    private $Status;
+    private $status;
+    
 
     /**
      * Get id
@@ -229,7 +230,7 @@ class Agendamento
      */
     public function setStatus($status)
     {
-        $this->Status = $status;
+        $this->status = $status;
 
         return $this;
     }
@@ -241,7 +242,7 @@ class Agendamento
      */
     public function getStatus()
     {
-        return $this->Status;
+        return $this->status;
     }
 
     /**

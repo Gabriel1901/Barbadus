@@ -20,8 +20,8 @@ class BarbeiroController extends Controller
      * Lists all barbeiro entities.
      *
      * @Route("/", name="barbeiro_index")
-     * @Security("has_role('ROLE_ADMIN')")
      * @Method("GET")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function indexAction()
     {

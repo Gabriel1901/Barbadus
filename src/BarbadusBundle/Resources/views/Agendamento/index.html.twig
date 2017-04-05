@@ -1,20 +1,20 @@
 {% extends 'painel.html.twig' %}
 
 {% block body %}
-    <h1>Agendamentos list</h1>
+    <h1>Lista de Agendamentos</h1>
 
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Horario</th>
+                <th>Horário</th>
                 <th>Nome</th>
                 <th>Telefone</th>
                 <th>Email</th>
-                <th>Datacadastro</th>
-                <th>Dataalteracao</th>
+                <th>Data Cadastro</th>
+                <th>Data Alteração</th>
                 <th>Status</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +27,7 @@
                 <td>{{ agendamento.email }}</td>
                 <td>{% if agendamento.dataCadastro %}{{ agendamento.dataCadastro|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if agendamento.dataAlteracao %}{{ agendamento.dataAlteracao|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ agendamento.Status }}</td>
+                <td>{{ agendamento.status }}</td>
                 <td>
                     <ul>
                         <li>

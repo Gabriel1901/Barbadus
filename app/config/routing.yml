@@ -4,7 +4,7 @@ barbadus_agendamento:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
+    
 barbadus:
     resource: "@BarbadusBundle/Controller/"
     type:     annotation

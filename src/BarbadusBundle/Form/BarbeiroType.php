@@ -25,14 +25,13 @@ class BarbeiroType extends AbstractType
                         "Indefinido" => "I"
                     ),
                     'expanded' => true,
-                    'multiple'=> false
+                    'multiple' => false
                 ))
                 ->add('dataNascimento', BirthdayType::class, array(
                     'format' => 'dd-MM-yyyy',
                     'label' => 'Data de Nascimento'
                 ))
                 ->add('telefone');
-                
     }
     
     /**
