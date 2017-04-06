@@ -11,7 +11,7 @@
                 <ul class="nav nav-pills nav-justified thumbnail setup-panel">
                     <li class="active"><a href="#step-1">
                             <h4 class="list-group-item-heading">Selecione o Serviço</h4>
-                            <p class="list-group-item-text">First step description</p>
+                            <p class="list-group-item-text" id="label-servico">First step description</p>
                         </a></li>
                     <li class="disabled"><a href="#step-2">
                             <h4 class="list-group-item-heading">Selecione o Profissional</h4>
@@ -72,22 +72,11 @@
 
                     <fieldet id="horarios">
                         <legend>Selecione o Hario</legend>
-                        
-                        <div class="radio">
-                        
-                        <label><input type="radio" name="horario"/>10:00</label>
-                        </div>
-                        <div class="radio">
-                        
-                        <label><input type="radio" name="horario" disabled="disabled"/>11:00</label>
-                        </div>
-                        <div class="radio">
-                        
-                        <label><input type="radio" name="horario"/>12:00</label>
-                        </div>
-                    </fieldet>
-                    
 
+
+                    </fieldet>
+
+                    <button id="activate-step-4" class="btn btn-primary btn-lg" disabled="disabled">Próximo passo</button>
                 </div>
             </div>
         </div>
@@ -95,6 +84,45 @@
             <div class="col-xs-12">
                 <div class="col-md-12 well">
                     <h1 class="text-center"> Confirme</h1>
+
+                    <div>
+
+                        <form method="POST" action="/agendar" class="form-horizontal">
+
+                            <input type="hidden" name="servico" value="" id="hid-servico"/>
+                            <input type="hidden" name="barbeiro" value="" id="hid-barbeiro"/>
+                            <input type="hidden" name="horario" value="" id="hid-horario"/>
+                            
+                            <div class="form-group">
+                                <label for="nome" class="col-sm-2 control-label">Nome</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="nome" id="nome" placeholder="nome">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefone" class="col-sm-2 control-label">telefone</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="telefone" class="form-control" id="telefone" placeholder="(99)99999-9999">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-success">Agendar</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
                 </div>
             </div>
         </div>

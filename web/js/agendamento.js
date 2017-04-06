@@ -28,11 +28,18 @@ $(document).ready(function () {
         $('ul.setup-panel li:eq(1)').removeClass('disabled');
         $('ul.setup-panel li a[href="#step-2"]').trigger('click');
         $(this).remove();
+        $('#label-servico').html($('#sel-servico option:selected').html());
     })
 
     $('#activate-step-3').on('click', function (e) {
         $('ul.setup-panel li:eq(2)').removeClass('disabled');
         $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+        $(this).remove();
+    })
+    
+    $('#activate-step-4').on('click', function (e) {
+        $('ul.setup-panel li:eq(3)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-4"]').trigger('click');
         $(this).remove();
     })
 });
@@ -49,14 +56,24 @@ $('#sel-servico').change(function () {
 
     }
     carregaBarbeiros($(this).val());
+    $('#hid-servico').val($(this).val());
+    
+    
 });
 
 $('#sel-dia').change(function () {
-    geraHorarios($(this).val());
+    geraHorarios($(this).val(), $('#hid-barbeiro').val() );
 });
 
 $("#profissionais").on("click", "input[name=profSelecionado]", function () {
     $("#activate-step-3").removeAttr('disabled');
+    $('#hid-barbeiro').val($(this).val());
+});
+
+$("#horarios").on("click", "input[name=horario]", function() {
+   $("#activate-step-4").removeAttr('disabled');
+   var horario = $('#sel-dia').val();+''+$(this).val();
+   $('#hid-horario').val(horario);
 });
 
 function carregaBarbeiros(idServico)
@@ -83,13 +100,18 @@ function carregaBarbeiros(idServico)
 
 function geraHorarios(dia)
 {
-    $.getJSON("/horarios?dia=" + dia, function (retorno) {
+    $.getJSON("/horarios?dia=" + dia+"&barbeiro="+barbeiro, function (retorno) {
 
         $('#horarios').empty();
 
-        retorno.forEach(function(el){
+        retorno.forEach(function (el) {
+
+            var disponivel = (el.disponivel == true) ? 'Disponivel' : 'Indisponivel';
+            var disabled = (el.disponivel == true) ? '' : 'disabled="disabled"';
+
             var radio = '<div class="radio">'
-                    + '<label><input type="radio" value="' + el.hora + '" name="horario"/>' + el.hora + '</label>'
+                    + '<label><input type="radio"  name="horario" value="' + el.hora + '"' + disabled + ' />'
+                    + el.hora + ' - ' + disponivel + '</label>'
                     + '</div>';
 
             $('#horarios').append(radio);
